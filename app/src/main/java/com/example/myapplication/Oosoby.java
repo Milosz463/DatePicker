@@ -1,22 +1,23 @@
 package com.example.myapplication;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class Oosoby {
     private String nazwa;
-    private Date dataUrodzenia;
+    private Calendar dataUrodzenia;
 
-
-
-    public Oosoby(Date dataUrodzenia, String nazwa) {
+    public Oosoby(String nazwa, Calendar dataUrodzenia) {
+        this.nazwa = nazwa;
         this.dataUrodzenia = dataUrodzenia;
-        this.nazwa = nazwa;
-
     }
-    public Oosoby(String nazwa) {
-        this.nazwa = nazwa;
-        dataUrodzenia = new Date();
 
+    public Oosoby(String nazwa, int rok, int mc, int dzien) {
+        this.nazwa = nazwa;
+        dataUrodzenia=Calendar.getInstance();
+        dataUrodzenia.set(Calendar.YEAR, rok);
+        dataUrodzenia.set(Calendar.MONTH, rok);
+        dataUrodzenia.set(Calendar.DAY_OF_MONTH, rok);
     }
 
     public String getNazwa() {
@@ -27,20 +28,16 @@ public class Oosoby {
         this.nazwa = nazwa;
     }
 
-    public Date getDataUrodzenia() {
+    public Calendar getDataUrodzenia() {
         return dataUrodzenia;
     }
 
-    public void setDataUrodzenia(Date dataUrodzenia) {
+    public void setDataUrodzenia(Calendar dataUrodzenia) {
         this.dataUrodzenia = dataUrodzenia;
     }
 
     @Override
     public String toString() {
-        return "Osoba{" +
-                "nazwa='" + nazwa + '\'' +
-                ", dataUrodzenia=" + dataUrodzenia +
-                '}';
-
+        return nazwa + ' ' + " dataUrodzenia: " + dataUrodzenia.get(Calendar.YEAR)+" "+dataUrodzenia.get(Calendar.MONTH)+" "+dataUrodzenia.get(Calendar.DAY_OF_MONTH);
     }
 }
